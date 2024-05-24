@@ -16,7 +16,7 @@ const Profile = () => {
           <CardTitle>$Profile Name, $Age</CardTitle>
           <CardDescription>$Username - $555ft - $000lb </CardDescription>
         </div>
-        <Button>Edit</Button>
+        <Button size="xs">Edit</Button>
       </CardHeader>
       <CardContent className=" grid gap-3">
         <p>Goal Weight: $lb</p>
@@ -28,14 +28,17 @@ const Profile = () => {
             <p>Days Workout: 56</p>
             <hr />
           </div>
-          <Button variant="outline"> Explore</Button>
+          <Button variant="outline" size="xs">
+            {" "}
+            Explore
+          </Button>
         </div>
       </CardContent>
-      <CardFooter>
+      {/* <CardFooter>
         <Badge variant="secondary">Workouts: $0</Badge>
         <Badge variant="secondary">Workouts: $0</Badge>
         <Badge variant="secondary">Workouts: $0</Badge>
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 };

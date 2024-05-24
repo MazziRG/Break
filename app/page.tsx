@@ -1,25 +1,27 @@
 import React from "react";
 import Calculator from "@/components/Calculator";
 import Profile from "@/components/Profile";
+import GymLog from "@/components/GymLog";
+import Calander from "@/components/RoutineCalander";
 
-const page = () => {
+const Page = () => {
   return (
-    <div>
-      <Calculator />
-      {/* {<Profile />} */}
-    </div>
+    <>
+      {/* <Calander />
+      <Profile />
+      <GymLog />
+      <Calculator /> */}
+      <main className="container main">
+        <Calander />
+        <Profile />
+        <GymLog />
+        <aside className="sidebar">
+          <div>Templets</div>
+          <Calculator />
+        </aside>
+      </main>
+    </>
   );
-  // return (
-  //   <main className="container main">
-  //     <div>Calander</div>
-  //     <div>Profile</div>
-  //     <div> Gym Log</div>
-  //     <aside className="sidebar">
-  //       <div>Templets</div>
-  //       <div>1 Rep</div>
-  //     </aside>
-  //   </main>
-  // );
 };
 
-export default page;
+export default Page;
