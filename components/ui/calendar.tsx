@@ -7,7 +7,10 @@ const Calendar = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("rounded-lg p-2 w-full my-2 flex  items-center", className)}
+    className={cn(
+      "rounded-lg p-2 w-full my-2 gap-2 flex min-h-32 place-content-center",
+      className
+    )}
     {...props}
   />
 ));
@@ -35,7 +38,7 @@ const DateCell = React.forwardRef<
   <li
     ref={ref}
     className={cn(
-      "rounded-md border shadow-sm p-2 text-center w-12 h-12 cursor-pointer flex justify-center items-center hover:bg-slate-100",
+      "rounded-md border shadow-sm p-2 text-center w-10 h-10 cursor-pointer flex justify-center items-center hover:bg-slate-100",
       className
     )}
     {...props}
@@ -49,7 +52,7 @@ const CalanderControls = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("rounded-md p-2 flex gap-0.5", className)}
+    className={cn("rounded-md p-0 flex gap-0.5 ", className)}
     {...props}
   />
 ));

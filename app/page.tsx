@@ -3,6 +3,7 @@ import Calculator from "@/components/Calculator";
 import Profile from "@/components/Profile";
 import GymLog from "@/components/GymLog";
 import Calander from "@/components/RoutineCalander";
+import QuickTempletes from "@/components/Templets";
 
 const Page = () => {
   return (
@@ -15,8 +16,8 @@ const Page = () => {
         <Calander />
         <Profile />
         <GymLog />
-        <aside className="sidebar">
-          <div>Templets</div>
+        <aside className="sidebar ">
+          <QuickTempletes />
           <Calculator />
         </aside>
       </main>

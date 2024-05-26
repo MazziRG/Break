@@ -9,7 +9,7 @@ import {
 } from "../ui/card";
 
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Input, Select } from "../ui/input";
 import { useState } from "react";
 
 type ResultsStateTypes = {
@@ -38,9 +38,15 @@ function Calculator() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center">
-            <Input placeholder="Write down Weight Amount in lb or kg" />
-            <select />
+          <div className="flex items-center ">
+            <Input
+              placeholder="Write down Weight Amount in lb or kg"
+              className="rounded-r-none focus:rounded focus:mr-1"
+            />
+            <Select className=" rounded-l-none w-16">
+              <option>kg</option>
+              <option>kg</option>
+            </Select>
           </div>
           <div className="flex gap-6 items-center">
             <Input placeholder="How many reps" /> <Button>Calculate</Button>

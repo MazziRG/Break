@@ -18,7 +18,7 @@ const Profile = () => {
         </div>
         <Button size="xs">Edit</Button>
       </CardHeader>
-      <CardContent className=" grid gap-3">
+      <CardContent className="flex flex-col gap-0 justify-between grow">
         <p>Goal Weight: $lb</p>
         <hr />
         <p>Daily Calory Intake: 1200 </p>
@@ -29,7 +29,6 @@ const Profile = () => {
             <hr />
           </div>
           <Button variant="outline" size="xs">
-            {" "}
             Explore
           </Button>
         </div>

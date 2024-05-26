@@ -27,7 +27,7 @@ const GymLog = () => {
             </Button>
           </div>
           <div className="grid gap-4">
-            {/* Make this section  grow to scrool thru workouts */}
+            {/* Make this section  grow to scrool thru */}
             <TableLog />
           </div>
         </CardContent>
