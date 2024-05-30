@@ -10,6 +10,7 @@ import {
 } from "../ui/table";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
+import { Input } from "../ui/input";
 
 const logs = {
   weightType: "lb",
@@ -50,16 +51,16 @@ const TableLog = () => {
             </Button>
           </TableCell>
           <TableCell>
-            <Badge className="p-1 w-10">1</Badge>
+            <Input className="p-1 w-10 m-auto text-center" value={1} />
           </TableCell>
           <TableCell>
-            <Badge className="p-1 w-24">1</Badge>
+            <Input className="p-1 w-24 m-auto text-center" value={1} />
           </TableCell>
           <TableCell>
-            <Badge className="p-1 w-16">1</Badge>
+            <Input className="p-1 w-10 m-auto text-center" value={1} />
           </TableCell>
           <TableCell>
-            <Badge className="p-1 w-24">1</Badge>
+            <Input className="p-1 w-24 m-auto text-center" value={1} />
           </TableCell>
           <TableCell>
             <Button size="check" className=" bg-lime-400">

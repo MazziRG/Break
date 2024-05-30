@@ -1,4 +1,5 @@
 "use client";
+import * as React from "react";
 import {
   Card,
   CardContent,
@@ -11,19 +12,47 @@ import {
 import { Button } from "../ui/button";
 import { Input, Select } from "../ui/input";
 import { useState } from "react";
+import { RulerIcon } from "lucide-react";
+
+interface Key {
+  [key: string]: string | number;
+}
 
 type ResultsStateTypes = {
-  lb: number;
-  kg: number;
+  lb?: string;
+  kg?: string;
+};
+
+type EventTarget = React.ChangeEvent<HTMLInputElement>;
+
+const convertedWeight: Key = {
+  kg: "lb",
+  lb: "kg",
 };
 
 function Calculator() {
   const [results, useResults] = useState<ResultsStateTypes | null>(null);
   const [converter, useConverter] = useState<ResultsStateTypes | null>(null);
 
-  const handelWeightConverter = () => {
-    // const kg = converter?.lb / 2.205;
-    // const lb = converter?.kg * 2.205;
+  const kg = converter?.kg;
+  const lb = converter?.lb;
+
+  const HandelWeightConverter = (e: EventTarget) => {
+    const InputTarget = e.currentTarget;
+    const inputValue = e.currentTarget.value;
+    const targetWeight = InputTarget.name;
+
+    const other = convertedWeight[targetWeight];
+
+    const convert: Key = {
+      kg: Number(inputValue) / 2.205 || "",
+      lb: Number(inputValue) * 2.205 || "",
+    };
+
+    useConverter({
+      [targetWeight]: inputValue,
+      [other]: convert[targetWeight],
+    });
   };
 
   return (
@@ -40,10 +69,10 @@ function Calculator() {
         <CardContent>
           <div className="flex items-center ">
             <Input
-              placeholder="Write down Weight Amount in lb or kg"
+              placeholder="Weight Amount in Lb or KG"
               className="rounded-r-none focus:rounded focus:mr-1"
             />
-            <Select className=" rounded-l-none w-16">
+            <Select className=" rounded-l-none w-20">
               <option>kg</option>
               <option>kg</option>
             </Select>
@@ -57,30 +86,43 @@ function Calculator() {
               {results?.lb}
             </span>
             lb or
-            <span className=" w-14  p-1 inline-block text-md border-b-2 ">
+            <span className=" w-14  p-1 inline-block text-md border-b-2">
               {results?.kg}
             </span>
             kg
           </p>
         </CardContent>
-        <hr className="my-2" />
+        <hr className="my-2 -m-2" />
+        <CardTitle className=" text-center underline ">Converter</CardTitle>
+
+        <CardDescription className="p-3 text-center">
+          Converts between KG{"(kilograms)"} and LB {"(Pounds)"}
+        </CardDescription>
         <CardFooter>
           <Input
-            value={converter?.lb}
+            value={lb}
             type="number"
             placeholder="000 lb"
+            name="lb"
             max={999}
             min={0.0}
             step={5}
+            onChange={(e: EventTarget) => HandelWeightConverter(e)}
           />
-          <Button>Convert</Button>
+          {/* <Button disabled={bttnConvert}>Convert</Button> */}
+          <div>
+            <RulerIcon />
+            <hr className="absolute w-24 z-10" />
+          </div>
           <Input
-            value={converter?.kg}
+            value={kg}
             type="number"
             placeholder="000 kg"
+            name="kg"
             max={999}
             min={0.0}
             step={5}
+            onChange={(e: EventTarget) => HandelWeightConverter(e)}
           />
         </CardFooter>
       </Card>
